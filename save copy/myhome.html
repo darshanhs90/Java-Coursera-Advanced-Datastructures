@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>My Home Page</title>
+	<link rel="stylesheet" href="public/lib/bootswatch/css/bootstrap.min.css">
+	<link rel="stylesheet" href="public/lib/bootswatch/css/bstrap.css">
+        <link rel="stylesheet" href="public/lib/angular-ui-select/dist/select.min.css">
+	<link rel="stylesheet" href="css/homepage.css">
+        <link rel="stylesheet" href="css/quake.css">
+	<script src='public/lib/jquery/dist/jquery.min.js'></script>
+        <script src='public/lib/bootstrap/dist/js/bootstrap.min.js'></script>
+	<script src='public/lib/bootswatch/js/bstrap.min.js'></script>
+        <script src='public/lib/angular/angular.min.js'></script>
+	<script src='public/lib/angular-ui-select/dist/select.min.js'></script>
+        <script src='js/app.js'></script>
+    	
+</head>
+<body ng-controller='MainController' class="container">
+<div id="row_top" class="row top">
+<div class="col-sm-12">jjjjj</div>
+</div>
+<!--Make a Bold heading-->
+<div id="row_new" class="row" ng-hide="hidetext">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+<form name="myform">
+  <p style="text-align:center;"><input type="text" required="true" ng-model="txt" style="border-radius: 25px;"></p>
+  <p style="text-align:center"> <button class="btn btn-primary" ng-click="fn4()" ng-disabled="myform.$invalid"> Enter your Name to See The Homepage</button></p>
+</form>
+    </div>
+    <div class="col-sm-4">
+</div>
+</div>
+<div id="row_center" class="row" style="height:100%;" ng-show="showpage">
+<div class="col-sm-2"  ></div>
+<div class="jumbotron col-sm-8" style="border-radius: 20px; height:100%;opacity: 0.8;"  ng-mouseleave="fn2()">
+    <div ngshow="txt!=''" style="color:red;"> Hello {{txt}}</div>
+    <p name="srch" style="text-align:center;" id="srch1" ng-mouseenter="fn1()"><button ng-show="srch" class="btn btn-important"  style="border-radius:20px;width:20%;">Search</button></p>
+        <div id="srch2" >
+        <ui-select  ng-click="fn3()" style="text-align:center;" ng-model="selectedabout.selected" theme="bootstrap" class="slct" reset-search-input="false" style="border-radius:20px; width: 80%;color:black;">
+		<ui-select-match placeholder="What Do You Want to Know?" >
+			<b>Want To Know About</b>:<b id="decision">{{$select.selected.name}}</b>
+		</ui-select-match>
+		<ui-select-choices repeat="e in about|filter:$select.search" >
+			{{e.name}}
+		</ui-select-choices>
+	</ui-select>
+        </div>
+</div>
+<div class="col-sm-2"></div>
+</div>
+    
+<div class="row jumbotron" ng-show="decisionChosen=='technical'">
+<div class="col-sm-2">
+</div>
+<div class="col-sm-8">Technical
+<!--  Skills,Bachelors,Masters and Projects-->
+</div>
+<div class="col-sm-2"></div>
+</div>
+
+<div class="row jumbotron" ng-show="decisionChosen=='summary'">
+<div class="col-sm-2"></div>
+<div class="col-sm-8">Summary<!--
+Interests,from where i do come,hobbies,etc
+
+--></div>
+<div class="col-sm-2"></div>
+</div>
+
+<div class="row jumbotron" ng-show="decisionChosen=='frameworks'">
+<div class="col-sm-2"></div>
+<div class="col-sm-8">Frameworks
+<!-- frameworks used ,where and how are thier functionalities used --></div>
+<div class="col-sm-2"></div>
+</div>
+
+<div class="row jumbotron" ng-show="decisionChosen=='frontend'">
+<div class="col-sm-2"></div>
+<div class="col-sm-8">FrontEnd
+<!--  Reason for being a UI Developer--></div>
+<div class="col-sm-2"></div>
+</div>
+
+<div class="row jumbotron" ng-show="decisionChosen=='browse'" style="height:100%;">
+<div class="row">
+<div class="col-sm-2">
+    <p class="pull-left icn"><button type="button" class="btn btn-default btn-sm" ng-mouseenter="hoverfn('contact')">
+          <span class="glyphicon glyphicon-phone-alt"></span> Contact
+        </button></p>
+    <p class="pull-left icn"><button type="button" class="btn btn-success btn-sm" ng-mouseenter="hoverfn('calendar')" >
+          <span class="glyphicon glyphicon-calendar"></span> Calendar
+        </button></p>
+    <p class="pull-left icn"><button type="button" class="btn btn-info btn-sm" ng-mouseenter="hoverfn('picture')" >
+          <span class="glyphicon glyphicon-picture"></span> Photography
+        </button></p>
+    <p class="pull-left icn"><button type="button" class="btn btn-important btn-sm" ng-mouseenter="hoverfn('mapmark')" >
+          <span class="glyphicon glyphicon-globe"></span>Web projects
+        </button></p>
+    <p class="pull-left icn"><button type="button" class="btn btn-primary btn-sm" ng-mouseenter="hoverfn('projects')" >
+          <span class="glyphicon glyphicon-phone"></span>Other Projects
+        </button></p>
+
+
+</div>
+<div class="col-sm-8" >
+<div ng-show="arr[0]">
+    <h3 class="page-header">Web Projects</h3>
+    <div ng-repeat="proj in projects track by $index">
+        <div  ng-mouseleave="showlink($index,false)">
+        <h4>{{$index+1}}.{{proj.title}}</h4>
+        <p style="font-size: 12px;">Description:{{proj.description}}</p>
+        Frameworks/Technologies Used:{{proj.frameworks}}<br/>
+        <div ng-show="showlinks[$index]">
+    <object   type="text/html" data="{{proj.link}}" width="400px" height="250px" >
+    </object></div>
+    <a href="{{proj.link}}" ng-mouseenter="showlink($index,true)" ng-show="proj.link!='NA'" target="_blank">Link to {{proj.title}}</a>
+    </div>
+    </div>
+</div>
+<div ng-show="arr[1]">Photography pending</div>
+<div ng-show="arr[2]">
+    <h3 class="page-header">Other Projects</h3>
+    <div ng-repeat="proj in otherprojects track by $index">
+        <div >
+        <h4>{{$index+1}}.{{proj.title}}</h4>
+        <p style="font-size: 12px;">Description:{{proj.description}}</p>
+        Frameworks/Technologies Used:{{proj.frameworks}}<br/>
+    <a href="{{proj.link}}" target="_blank" ng-show="proj.link!='NA'">Link to {{proj.title}}</a>
+    </div>
+    </div>
+
+</div>
+<div ng-show="arr[3]">Calendar pending</div>
+<div ng-show="arr[4]">
+<h3 class="page-header">Contact me:</h3>
+    <p>
+        <a  class="btn btn-info btn-md shake-me" ng-click="mob=true">
+          <span class="glyphicon glyphicon-phone"></span> Mobile Phone 
+        </a>
+      </p>
+    <p ng-show="mob" style="text-align: center;">4697672278</p>
+    <p>
+        <a  class="btn btn-info btn-md shake-me" ng-click="addr=true">
+          <span class="glyphicon glyphicon-home"></span> Home Address
+        </a>
+        
+      </p> 
+    <p ng-show="addr" style="text-align: center;">7720,McCallum Blvd,Apt 3075,Dallas,Texas-75252</p>
+     <p>
+        <a  class="btn btn-info btn-md shake-me" ng-click="email=true">
+          <span class="glyphicon glyphicon-envelope"></span> Email Address
+        </a>
+      </p> 
+    <p ng-show="email" style="text-align: center;">hsdars@gmail.com</p>
+    <p ng-show="email" style="text-align: center;">hxh141330@utdallas.edu</p>
+</div>
+<div ng-show="arr[5]">
+    <h3 class="page-header">Tired of Going though the Multiple Projects? Try the Smart Search Instead</h3>
+    <p style="text-align: center;"><input style="border-radius: 25px;color:black;" type="text" ng-model="search" placeholder="Enter Search item here"></p>
+    <table class="table table-hover table-striped">
+        <thead>
+        <tr><th>Project Name</th><th>Project Type</th><th>Technologies Used</th></tr>
+        </thead>
+        <tbody>
+         <tr ng-repeat="rec in resume|filter:search">
+            <td>{{rec.name}}</td>
+            <td>{{rec.type}}</td>
+            <td>{{rec.tech}}</td>
+         </tr>   
+        </tbody>
+        
+        
+    </table>
+    
+</div>
+<div ng-show="arr[6]">
+<iframe src="http://www.slideshare.net/slideshow/embed_code/44331745" width="477" height="510" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/HaridarshanHS/resume-44331745" title="Resume" target="_blank">Resume</a> </strong> from <strong><a href="http://www.slideshare.net/HaridarshanHS" target="_blank">Haridarshan H S</a></strong> </div>
+</div>
+<div ng-show="arr[7]">
+<div>
+    <p>
+        <a href="https://www.linkedin.com/in/haridarshanhs" target="_blank" class="btn btn-primary btn-md shake-me">
+          <span class="glyphicon glyphicon-user"></span> Add me on Linkedin 
+        </a>
+      </p>
+    <p>
+        <a href="https://www.facebook.com/darshan.hs.3" target="_blank" class="btn btn-default btn-md shake-me">
+          <span class="glyphicon glyphicon-user"></span> Send a Friend request on Facebook 
+        </a>
+      </p>
+    <p>
+        <a href="http://challengepost.com/haridarshan" target="_blank" class="btn btn-primary btn-md shake-me">
+          <span class="glyphicon glyphicon-user"></span> Follow me on ChallengePost 
+        </a>
+      </p>
+    <p>
+        <a href="https://github.com/darshanhs90" target="_blank" class="btn btn-default btn-md shake-me">
+          <span class="glyphicon glyphicon-user"></span> Fork my repository on Github 
+        </a>
+      </p> 
+</div>
+
+</div>
+<div ng-show="arr[8]">Hobbies</div>
+<div ng-show="arr[9]">Travelogue Pending</div>
+</div>
+<div class="col-sm-2">
+   <p class="pull-right icn"><button type="button" class="btn btn-primary btn-sm" ng-mouseenter="hoverfn('search')">
+          <span class="glyphicon glyphicon-search"></span> Search
+        </button></p>
+   <p class="pull-right icn"><button type="button" class="btn btn-important btn-sm" ng-mouseenter="hoverfn('linkedin')">
+          <span class="glyphicon glyphicon-star"></span> Resume
+        </button></p>
+    <p class="pull-right icn"><button type="button" class="btn btn-default btn-sm" ng-mouseenter="hoverfn('road')">
+          <span class="glyphicon glyphicon-tower"></span> Hobbies
+        </button></p>
+   <p class="pull-right icn"><button type="button" class="btn btn-info btn-sm" ng-mouseenter="hoverfn('facebook')">
+          <span class="glyphicon glyphicon-plus"></span> Networking
+        </button></p>
+   <p class="pull-right icn"><button type="button" class="btn btn-success btn-sm" ng-mouseenter="hoverfn('plane')">
+          <span class="glyphicon glyphicon-plane"></span> Travelogue
+        </button></p>
+
+
+</div>
+</div>
+<!--
+fb//linkedin//javaprojects//searchbutton//resume//webprojects//workex/hobbies//photography//Travelogue//challengepost-->
+</div>
+
+</body>
+</html>
