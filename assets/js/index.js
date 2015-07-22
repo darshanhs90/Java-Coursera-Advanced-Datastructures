@@ -6,7 +6,7 @@ $(function(){
             loop: false,
             contentType: 'text', // or text
             // defaults to false for infinite loop
-            loopCount: 2,
+            loopCount: false,
             callback: function(){ foo(); },
             resetCallback: function() { newTyped(); }
         });
@@ -15,5 +15,12 @@ $(function(){
         });
     });
     function newTyped(){ /* A new typed object */ }
-    function foo(){ console.log("Callback");
-}
+    function foo(){ console.log("Callback");}
+    
+    function code(){ window.location.href='http://www.challengepost.com/haridarshan';}
+    function education(){ window.location.href='sidebar.html';}
+    function experience(){ window.location.href='sidebar.html';}
+    function github(){ window.location.href='http://www.github.com/darshanhs90';}
+    function linkedin(){ window.location.href='https://linkedin.com/in/haridarshanhs';}
+    function calendar(){ window.location.href='sidebar.html';}
+    
