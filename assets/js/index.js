@@ -1,6 +1,6 @@
 $(function(){
         $("#typed").typed({
-            strings: ["Typed.js is a Javascript Plugin.", "It types out sentences.", "And then deletes them.", "Try it out!"],
+            strings: ["I am Haridarshan.","I am a Java Developer","I am a JavaScript Developer","I am a Android Developer"],
             typeSpeed: 30,
             backDelay: 100,
             loop: false,
