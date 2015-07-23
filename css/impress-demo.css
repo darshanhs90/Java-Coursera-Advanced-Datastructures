@@ -686,6 +686,7 @@ a:focus {
 .impress-enabled #impress { pointer-events: auto }
 #impress{
     margin-top: 350px;
+    
 }
 /*
     There is one funny thing I just realized.
