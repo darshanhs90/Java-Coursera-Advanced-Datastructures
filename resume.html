@@ -77,7 +77,8 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <link rel="import" href="impress.html">
+                        <!-- <link rel="import" href="impress.html"> -->
+                        <div id="includedContent"></div>
                     </div>
                 </div>
             </div>
@@ -91,7 +92,11 @@
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
+<script> 
+    $(function(){
+      $("#includedContent").load("impress.html"); 
+    });
+    </script> 
     <!-- Menu Toggle Script -->
     <script>
     $("#menu-toggle").click(function(e) {
