@@ -207,30 +207,30 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
 .success(function(data, status, headers, config) {
   console.log(data);
   f(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
-          {
-            alert('exceeded Maximum Requests,Try Again Later');
-            throw new Error("Something went badly wrong!");
-          }
-  var languages={};
-  languages['Java']=0;
-  languages['HTML']=0;
-  languages['CSS']=0;
-  languages['JavaScript']=0;
-  languages['Arduino']=0;
-  languages['C']=0;
+  {           
+   swal({   title: "Oh NO!",   text: "You have exceeded Maximum Requests,Try Again Later",   imageUrl: "images/what.jpg" });
+   throw new Error("Something went badly wrong!");
+ }
+ var languages={};
+ languages['Java']=0;
+ languages['HTML']=0;
+ languages['CSS']=0;
+ languages['JavaScript']=0;
+ languages['Arduino']=0;
+ languages['C']=0;
 
-  
-  $scope.myXhr = function(i1){
+ 
+ $scope.myXhr = function(i1){
 
-    var deferred = $q.defer();
-    $http({
-      url: data[i1].languages_url
-    })
+  var deferred = $q.defer();
+  $http({
+    url: data[i1].languages_url
+  })
         //if request is successful
         .success(function(data,status,headers,config){
           if(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
           {
-            alert('exceeded Maximum Requests,Try Again Later');
+            swal({   title: "Oh NO!",   text: "You have exceeded Maximum Requests,Try Again Later",   imageUrl: "images/what.jpg" });
             throw new Error("Something went badly wrong!");
           }
             //resolve the promise
@@ -312,7 +312,7 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
         .success(function(data1,status,headers,config){
           if(data1.message!=undefined && data1.message.indexof('API rate limit exceeded')!=-1)
           {
-            alert('exceeded Maximum Requests,Try Again Later');
+            swal({   title: "Oh NO!",   text: "You have exceeded Maximum Requests,Try Again Later",   imageUrl: "images/what.jpg" });
             throw new Error("Something went badly wrong!");
           }
             //resolve the promise
