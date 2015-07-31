@@ -206,6 +206,11 @@ f2();
 $http.get('https://api.github.com/users/darshanhs90/repos')
 .success(function(data, status, headers, config) {
   console.log(data);
+  f(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
+          {
+            alert('exceeded Maximum Requests,Try Again Later');
+            throw new Error("Something went badly wrong!");
+          }
   var languages={};
   languages['Java']=0;
   languages['HTML']=0;
@@ -305,7 +310,7 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
   })
         //if request is successful
         .success(function(data1,status,headers,config){
-          if(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
+          if(data1.message!=undefined && data1.message.indexof('API rate limit exceeded')!=-1)
           {
             alert('exceeded Maximum Requests,Try Again Later');
             throw new Error("Something went badly wrong!");
@@ -347,7 +352,7 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
           var obj = { 
             year:$scope.arryear[index],
             commits:$scope.arrcommit[index],
-            
+
           };
           myData.push(obj);
         }
