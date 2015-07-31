@@ -223,11 +223,11 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
     })
         //if request is successful
         .success(function(data,status,headers,config){
-            if(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
-            {
-              alert('exceeded Maximum Requests,Try Again Later');
-              throw new Error("Something went badly wrong!");
-            }
+          if(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
+          {
+            alert('exceeded Maximum Requests,Try Again Later');
+            throw new Error("Something went badly wrong!");
+          }
             //resolve the promise
             if(data.Java!=undefined)
               languages['Java']+=1;
@@ -293,8 +293,8 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
   for (var i = 0; i <data.length; i++) {
    $scope.callXhrAsynchronous(i);
  };
-$scope.arryear=[];
-$scope.arrcommit=[];
+ $scope.arryear=[];
+ $scope.arrcommit=[];
  
  $scope.myXhr1 = function(i1){
 
@@ -305,7 +305,11 @@ $scope.arrcommit=[];
   })
         //if request is successful
         .success(function(data1,status,headers,config){
-
+          if(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
+          {
+            alert('exceeded Maximum Requests,Try Again Later');
+            throw new Error("Something went badly wrong!");
+          }
             //resolve the promise
             console.log(data1);
             date1=data[i1].created_at;
@@ -339,14 +343,14 @@ $scope.arrcommit=[];
       {
 
         var myData = [];
-for (var index = 0; index <data.length-1; index++) {
-  var obj = { 
-        year:$scope.arryear[index],
-      commits:$scope.arrcommit[index],
-          
-    };
-    myData.push(obj);
-}
+        for (var index = 0; index <data.length-1; index++) {
+          var obj = { 
+            year:$scope.arryear[index],
+            commits:$scope.arrcommit[index],
+            
+          };
+          myData.push(obj);
+        }
 
 
 
@@ -376,12 +380,12 @@ for (var index = 0; index <data.length-1; index++) {
       //alert(reject)      
     });
 
-  }
+}
 
-  for (var i = 0; i <data.length-1; i++) {
-   $scope.callXhrAsynchronous1(i);
+for (var i = 0; i <data.length-1; i++) {
+ $scope.callXhrAsynchronous1(i);
 
- };
+};
 
 
 
