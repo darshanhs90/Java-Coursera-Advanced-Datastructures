@@ -2,6 +2,7 @@
 var app=angular.module('myApp',[]);
 app.controller('myCtrl',function($scope,$http,$q) {
   var svg;
+  //6ad0a82c922020a5d1750918d4e2f1120ad9f9bb
   function f1(){
     var margin = {top: 100, right: 100, bottom: 100, left: 100},
     width = 960 - margin.left - margin.right,
@@ -222,7 +223,11 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
     })
         //if request is successful
         .success(function(data,status,headers,config){
-
+            if(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
+            {
+              alert('exceeded Maximum Requests,Try Again Later');
+              throw new Error("Something went badly wrong!");
+            }
             //resolve the promise
             if(data.Java!=undefined)
               languages['Java']+=1;
