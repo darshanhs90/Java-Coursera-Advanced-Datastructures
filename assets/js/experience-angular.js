@@ -16,4 +16,12 @@ app.controller('myCtrl',function($scope,$http) {
 
 		swal({   title: "Are you sure?",   text: "You want to clone the repository "+$scope.repositories[$val].name,   type: "warning",   showCancelButton: true,   confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, Clone it!",   cancelButtonText: "No, Cancel Clone!",   closeOnConfirm: false,   closeOnCancel: false }, function(isConfirm){   if (isConfirm) {     swal("Cloned!", "This Repository "+$scope.repositories[$val].name +" has been cloned.", "success");   } else {     swal("Cancelled", "Cloning of "+$scope.repositories[$val].name+" is cancelled", "error");   } });
 	};
+		$scope.voteup=function($val){
+
+		swal({   title: "Sweet!",   text: "Thanks for the Heads up.",   imageUrl: "images/yay.jpg" });
+			};
+		$scope.votedown=function($val){
+
+		swal({   title: "Oh NO!",   text: "Let us know the issues.",   imageUrl: "images/what.jpg" });
+	};
 });

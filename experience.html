@@ -76,6 +76,8 @@
                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                             <div class="jumbotron" ng-repeat="repo in repositories track by $index" style="color:black;font-size:18px;">
                                 <span><b>Repo Name </b> : {{repo.name}}</span>
+                                <span class="glyphicon glyphicon-thumbs-up" badge="100" ng-click="voteup()"><span class="badge">{{$index*3}}</span></span>
+                                <span class="glyphicon glyphicon-thumbs-down" ng-click="votedown()"><span class="badge">0</span></span>
                                 <br>
                                 <a href="{{repo.html_url}}">Link to the repo</a>
                                 <br>
@@ -85,37 +87,38 @@
                                 <br>
                                 <span>Created : {{repo.created_at}}</span>
                                 <br>
-                            </span>Last Updated : {{repo.updated_at}}</span>
+                                <span>Last Updated : {{repo.updated_at}}</span>
 
-                        </div>   
 
+                            </div>   
+
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- /#page-content-wrapper -->
+
         </div>
-        <!-- /#page-content-wrapper -->
+        <!-- /#wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/sweetalert.min.js"></script>
+        <script src="assets/js/angular.min.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/sweetalert.min.js"></script>
-    <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/experience-angular.js"></script>
 
-    <script src="assets/js/experience-angular.js"></script>
+        <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        </script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+    </body>
 
-</body>
-
-</html>
+    </html>
