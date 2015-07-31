@@ -1,6 +1,6 @@
 
 var app=angular.module('myApp',[]);
-app.controller('myCtrl',function($scope,$http) {
+app.controller('myCtrl',function($scope,$http,$q) {
   var svg;
   function f1(){
     var margin = {top: 100, right: 100, bottom: 100, left: 100},
@@ -205,51 +205,207 @@ f2();
 $http.get('https://api.github.com/users/darshanhs90/repos')
 .success(function(data, status, headers, config) {
   console.log(data);
-  $('#waver').css('visibility','hidden');
-  $('#waver').css('height','0px');
+  var languages={};
+  languages['Java']=0;
+  languages['HTML']=0;
+  languages['CSS']=0;
+  languages['JavaScript']=0;
+  languages['Arduino']=0;
+  languages['C']=0;
+
   
-  $('#contributions').css('visibility','visible');
-  $('#contributions').css('height','250px');
-  new Morris.Line({
+  $scope.myXhr = function(i1){
+
+    var deferred = $q.defer();
+    $http({
+      url: data[i1].languages_url
+    })
+        //if request is successful
+        .success(function(data,status,headers,config){
+
+            //resolve the promise
+            if(data.Java!=undefined)
+              languages['Java']+=1;
+            if(data.HTML!=undefined)
+              languages['HTML']+=1;
+            if(data.CSS!=undefined)
+              languages['CSS']+=1;
+            if(data.JavaScript!=undefined)
+              languages['JavaScript']+=1;
+            if(data.Arduino!=undefined)
+              languages['Arduino']+=1;
+            if(data.C!=undefined)
+              languages['C']+=1;
+
+
+            deferred.resolve('request successful');
+
+          })
+        //if request is not successful
+        .error(function(data,status,headers,config){
+            //reject the promise
+            deferred.reject('ERROR');
+          });
+
+    //return the promise
+    return deferred.promise;
+  }
+
+  $scope.callXhrAsynchronous = function(i1){
+
+    var myPromise = $scope.myXhr(i1);
+
+    // wait until the promise return resolve or eject
+    //"then" has 2 functions (resolveFunction, rejectFunction)
+    myPromise.then(function(resolve){
+      if(i1==data.length-1)
+      {
+       Morris.Donut({
+        element: 'donut-example',
+        data: [
+        {label: "Java", value: languages['Java']},
+        {label: "HTML", value: languages['HTML']},
+        {label: "JavaScript", value: languages['JavaScript']},
+        {label: "CSS", value: languages['CSS']},
+        {label: "C", value: languages['C']},
+        {label: "Arduino", value: languages['Arduino']}
+        ]
+      });
+       $('#loader').css('visibility','hidden');
+       $('#loader').css('height','0px');
+
+       $('#areas').css('visibility','visible');
+       $('#areas').css('height','250px');
+     }  
+
+
+   }, function(reject){
+    alert(reject)      
+  });
+
+  }
+
+  for (var i = 0; i <data.length; i++) {
+   $scope.callXhrAsynchronous(i);
+ };
+$scope.arryear=[];
+$scope.arrcommit=[];
+ 
+ $scope.myXhr1 = function(i1){
+
+  var deferred = $q.defer();
+  str=data[i1].commits_url
+  $http({
+    url: str.substring(0,str.length-6)
+  })
+        //if request is successful
+        .success(function(data1,status,headers,config){
+
+            //resolve the promise
+            console.log(data1);
+            date1=data[i1].created_at;
+            $scope.arryear[i1]=date1.substring(0,10);
+            $scope.arrcommit[i1]=data1.length;
+            console.log(data[i1].created_at);
+            console.log(data1.length);
+
+
+            deferred.resolve('request successful');
+
+          })
+        //if request is not successful
+        .error(function(data,status,headers,config){
+            //reject the promise
+            deferred.reject('ERROR');
+          });
+
+    //return the promise
+    return deferred.promise;
+  }
+
+  $scope.callXhrAsynchronous1 = function(i1){
+
+    var myPromise = $scope.myXhr1(i1);
+
+    // wait until the promise return resolve or eject
+    //"then" has 2 functions (resolveFunction, rejectFunction)
+    myPromise.then(function(resolve){
+      if(i1==data.length-2)
+      {
+
+        var myData = [];
+for (var index = 0; index <data.length-1; index++) {
+  var obj = { 
+        year:$scope.arryear[index],
+      commits:$scope.arrcommit[index],
+          
+    };
+    myData.push(obj);
+}
+
+
+
+        new Morris.Line({
   // ID of the element in which to draw the chart.
   element: 'myfirstchart',
   // Chart data records -- each entry in this array corresponds to a point on
   // the chart.
-  data: [
-  { year: '2008', value: 20 },
-  { year: '2009', value: 10 },
-  { year: '2010', value: 5 },
-  { year: '2011', value: 5 },
-  { year: '2012', value: 20 }
-  ],
+  data: myData,
   // The name of the data record attribute that contains x-values.
   xkey: 'year',
   // A list of names of data record attributes that contain y-values.
-  ykeys: ['value'],
+  ykeys: ['commits'],
   // Labels for the ykeys -- will be displayed when you hover over the
   // chart.
-  labels: ['Value']
+  labels: ['Commits']
 });
+        $('#waver').css('visibility','hidden');
+        $('#waver').css('height','0px');
+
+        $('#contributions').css('visibility','visible');
+        $('#contributions').css('height','250px');
+      }  
+
+
+    }, function(reject){
+      //alert(reject)      
+    });
+
+  }
+
+  for (var i = 0; i <data.length-1; i++) {
+   $scope.callXhrAsynchronous1(i);
+
+ };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });
 
-$http.get('https://api.github.com/users/darshanhs90')
-.success(function(data, status, headers, config) {
-  console.log(data);
-  $('#loader').css('visibility','hidden');
-  $('#loader').css('height','0px');
-  
-  $('#areas').css('visibility','visible');
-  $('#areas').css('height','250px');
-  Morris.Donut({
-    element: 'donut-example',
-    data: [
-    {label: "Download Sales", value: 12},
-    {label: "In-Store Sales", value: 30},
-    {label: "Mail-Order Sales", value: 20}
-    ]
-  });
 
-});
+
+
+// });
+
+
 
 
 
