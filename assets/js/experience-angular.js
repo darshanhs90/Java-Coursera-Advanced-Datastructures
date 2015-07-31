@@ -9,6 +9,9 @@ app.controller('myCtrl',function($scope,$http) {
 
 
 
+	})
+	.error(function(data){
+			swal({   title: "Oh NO!",   text: "Looks like you have exceeded the api quota,try again later",   imageUrl: "images/what.jpg" });
 	});
 
 

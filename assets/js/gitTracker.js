@@ -206,33 +206,24 @@ f2();
 $http.get('https://api.github.com/users/darshanhs90/repos')
 .success(function(data, status, headers, config) {
   console.log(data);
-  f(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
-  {           
-   swal({   title: "Oh NO!",   text: "You have exceeded Maximum Requests,Try Again Later",   imageUrl: "images/what.jpg" });
-   throw new Error("Something went badly wrong!");
- }
- var languages={};
- languages['Java']=0;
- languages['HTML']=0;
- languages['CSS']=0;
- languages['JavaScript']=0;
- languages['Arduino']=0;
- languages['C']=0;
 
- 
- $scope.myXhr = function(i1){
+  var languages={};
+  languages['Java']=0;
+  languages['HTML']=0;
+  languages['CSS']=0;
+  languages['JavaScript']=0;
+  languages['Arduino']=0;
+  languages['C']=0;
 
-  var deferred = $q.defer();
-  $http({
-    url: data[i1].languages_url
-  })
+  
+  $scope.myXhr = function(i1){
+
+    var deferred = $q.defer();
+    $http({
+      url: data[i1].languages_url
+    })
         //if request is successful
         .success(function(data,status,headers,config){
-          if(data.message!=undefined && data.message.indexof('API rate limit exceeded')!=-1)
-          {
-            swal({   title: "Oh NO!",   text: "You have exceeded Maximum Requests,Try Again Later",   imageUrl: "images/what.jpg" });
-            throw new Error("Something went badly wrong!");
-          }
             //resolve the promise
             if(data.Java!=undefined)
               languages['Java']+=1;
@@ -254,6 +245,8 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
         //if request is not successful
         .error(function(data,status,headers,config){
             //reject the promise
+            swal({   title: "Oh NO!",   text: "You have exceeded Maximum Requests,Try Again Later",   imageUrl: "images/what.jpg" });
+            throw new Error("Something went badly wrong!");
             deferred.reject('ERROR');
           });
 
@@ -310,11 +303,7 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
   })
         //if request is successful
         .success(function(data1,status,headers,config){
-          if(data1.message!=undefined && data1.message.indexof('API rate limit exceeded')!=-1)
-          {
-            swal({   title: "Oh NO!",   text: "You have exceeded Maximum Requests,Try Again Later",   imageUrl: "images/what.jpg" });
-            throw new Error("Something went badly wrong!");
-          }
+
             //resolve the promise
             console.log(data1);
             date1=data[i1].created_at;
@@ -330,6 +319,8 @@ $http.get('https://api.github.com/users/darshanhs90/repos')
         //if request is not successful
         .error(function(data,status,headers,config){
             //reject the promise
+            swal({   title: "Oh NO!",   text: "You have exceeded Maximum Requests,Try Again Later",   imageUrl: "images/what.jpg" });
+            throw new Error("Something went badly wrong!");
             deferred.reject('ERROR');
           });
 
@@ -392,35 +383,11 @@ for (var i = 0; i <data.length-1; i++) {
 
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+})
+.error(function(data){
+swal({   title: "Oh NO!",   text: "You have exceeded Maximum Requests,Try Again Later",   imageUrl: "images/what.jpg" });
+            throw new Error("Something went badly wrong!");
 
 });
-
-
-
-
-// });
-
-
-
-
 
 });
