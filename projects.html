@@ -71,24 +71,34 @@
             <!-- /#sidebar-wrapper -->
 
             <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-3">
-                     <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a><br/>
-                     <a ng-click="project(1)">Project 1</a><br/>
-                     <a ng-click="project(2)">Project 2</a><br/>
-                     <a ng-click="project(3)">Project 3</a><br/>
-                     <a ng-click="project(4)">Project 4</a><br/>
-                     <a ng-click="project(3)">Project 3</a><br/>
-                     <a ng-click="project(4)">Project 4</a><br/><a ng-click="project(3)">Project 3</a><br/>
-                     <a ng-click="project(4)">Project 4</a><br/><a ng-click="project(3)">Project 3</a><br/>
-                     <a ng-click="project(4)">Project 4</a><br/><a ng-click="project(3)">Project 3</a><br/>
-                     <a ng-click="project(4)">Project 4</a><br/>
-                    </div>
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3" >
+                           <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a><br/><br/>
+                           <h3>Projects</h3>
+                           <br>
+                           <div style="overflow-y: scroll; height:600px;">
+                               <a ng-click="project(1)">Project 1</a><hr/>
+                               <a ng-click="project(2)">Project 2</a><hr/>
+                               <a ng-click="project(3)">Project 3</a><hr/>
+                               <a ng-click="project(4)">Project 4</a><hr/>
+                               <a ng-click="project(3)">Project 3</a><hr/>
+                               <a ng-click="project(4)">Project 4</a><hr/>
+                               <a ng-click="project(3)">Project 3</a><hr/>
+                               <a ng-click="project(4)">Project 4</a><hr/>
+                               <a ng-click="project(3)">Project 3</a><hr/>
+                               <a ng-click="project(4)">Project 4</a><hr/>
+                               <a ng-click="project(3)">Project 3</a><hr/>
+                               <a ng-click="project(4)">Project 4</a><hr/>
+                               <a ng-click="project(4)">Project 4</a><hr/>
+                               <a ng-click="project(3)">Project 3</a><hr/>
+                               <a ng-click="project(4)">Project 4</a><hr/>
+                           </div>
+                       </div>
 
 
-                     <div class="col-lg-6">
+                       <div class="col-lg-6" id="rw1">
                         <div class="flipbook">
                             <div style="background-image:url(pages/1.jpg)" id="one"></div>
                             <div style="background-image:url(pages/2.jpg)" id="two"></div>
@@ -98,22 +108,22 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
     </div>
-    <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
 
-</div>
-<!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
 
-<!-- Bootstrap Core JavaScript -->
+    <script src="js/turn.min.js"></script>
+    <script src="assets/js/projects.js"></script>
+    <script type="text/javascript">
 
-<script src="js/turn.min.js"></script>
-<script src="assets/js/projects.js"></script>
-<script type="text/javascript">
-
-function loadApp() {
+    function loadApp() {
 
     // Create the flipbook
 

@@ -1,6 +1,6 @@
 var app=angular.module('myApp',[]);
 app.controller('myCtrl',function($scope,$http) {
-
+$('#rw1').css('visibility','hidden');
 	$scope.project=function($val){
 			
 
