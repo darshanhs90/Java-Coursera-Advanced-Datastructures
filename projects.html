@@ -71,101 +71,72 @@
             <!-- /#sidebar-wrapper -->
 
             <!-- Page Content -->
-            <div id="page-content-wrapper">
-                <div class="container-fluid">
-                   <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                   <div class="row">
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
                     <div class="col-lg-3">
-                        <a ng-click="project(1)">Project 1</a><br/>
-                        <a ng-click="project(2)">Project 2</a><br/>
-                        <a ng-click="project(3)">Project 3</a><br/>
-                        <a ng-click="project(4)">Project 4</a><br/>
-                    </div>
-                    <div class="col-lg-3">
-                        <a ng-click="project(5)">Project 5</a><br/>
-                        <a ng-click="project(6)">Project 6</a><br/>
-                        <a ng-click="project(7)">Project 7</a><br/>
-                        <a ng-click="project(8)">Project 8</a><br/>
-                    </div>
-                    <div class="col-lg-3">
-                        <a ng-click="project(9)">Project 9</a><br/>
-                        <a ng-click="project(10)">Project 10</a><br/>
-                        <a ng-click="project(11)">Project 11</a><br/>
-                        <a ng-click="project(12)">Project 12</a><br/>
-                    </div>
-                    <div class="col-lg-3">
-                        <a ng-click="project(13)">Project 13</a><br/>
-                        <a ng-click="project(14)">Project 14</a><br/>
-                        <a ng-click="project(15)">Project 15</a><br/>
-                        <a ng-click="project(16)">Project 16</a><br/>
-                    </div>
-                </div>
-                <br/>
-                <br/>
-                <br/>
-                <br/>
-                
-                <div class="row" style="visibility:hidden;" id="rw1">
-                    <div class="col-lg-2">
-                        <span>sample text</span>
+                     <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a><br/>
+                     <a ng-click="project(1)">Project 1</a><br/>
+                     <a ng-click="project(2)">Project 2</a><br/>
+                     <a ng-click="project(3)">Project 3</a><br/>
+                     <a ng-click="project(4)">Project 4</a><br/>
+                     <a ng-click="project(3)">Project 3</a><br/>
+                     <a ng-click="project(4)">Project 4</a><br/><a ng-click="project(3)">Project 3</a><br/>
+                     <a ng-click="project(4)">Project 4</a><br/><a ng-click="project(3)">Project 3</a><br/>
+                     <a ng-click="project(4)">Project 4</a><br/><a ng-click="project(3)">Project 3</a><br/>
+                     <a ng-click="project(4)">Project 4</a><br/>
                     </div>
 
-                    <div class="col-lg-8">
-                        
+
+                     <div class="col-lg-6">
                         <div class="flipbook">
                             <div style="background-image:url(pages/1.jpg)" id="one"></div>
                             <div style="background-image:url(pages/2.jpg)" id="two"></div>
                             <div style="background-image:url(pages/3.jpg)" id="three"></div>
                             <div style="background-image:url(pages/4.jpg)" id="four"></div>
                         </div>
-                   
-                    </div>
-                    
-
-                    <div class="col-lg-2">
-
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
+    <!-- /#page-content-wrapper -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+</div>
+<!-- /#wrapper -->
 
-    <!-- Bootstrap Core JavaScript -->
+<!-- jQuery -->
+<script src="js/jquery.js"></script>
 
-    <script src="js/turn.min.js"></script>
-    <script src="assets/js/projects.js"></script>
-    <script type="text/javascript">
+<!-- Bootstrap Core JavaScript -->
 
-    function loadApp() {
+<script src="js/turn.min.js"></script>
+<script src="assets/js/projects.js"></script>
+<script type="text/javascript">
+
+function loadApp() {
 
     // Create the flipbook
 
     $('.flipbook').turn({
             // Width
 
-            width:922,
+            width:600,
             
             // Height
 
-            height:600,
+            height:450,
 
             // Elevation
 
-            elevation: 50,
+            elevation: 100,
             
             // Enable gradients
 
-            gradients: true,
+            gradients: false,
             
             // Auto center this flipbook
 
-            autoCenter: true
+            autoCenter: false
 
         });
 }
