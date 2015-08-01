@@ -1,81 +1,129 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width = 1050, user-scalable = no" />
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>Simple Sidebar - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="css/basic.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
     <link rel="stylesheet" href="css/demo.css" media="screen">
     <link rel="stylesheet" href="css/demo-print.css" media="print">
+    <script type="text/javascript" src="js/jquery.min.1.7.js"></script>
+    <script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
 
-</head>
+    </head>
 
-<body>
+    <body style="color:black;" ng-controller="myCtrl">
 
-    <div id="wrapper">
+        <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="index.html">
-                        Homepage
-                    </a>
-                </li>
-                <li>
-                    <a href="introduction.html">Introduction</a>
-                </li>
-                <li>
-                    <a href="education.html">Education</a>
-                </li>
-                <li>
-                    <a href="experience.html">Repositories</a>
-                </li>
-                <li>
-                    <a href="projects.html">Projects</a>
-                </li>
-                <li>
-                    <a href="resume.html">Resume</a>
-                </li>
-                <li>
-                    <a href="hobbies.html">Hobbies</a>
-                </li>
-                <li>
-                    <a href="gitTracker.html">Git Tracker</a>
-                </li>
-                <li>
-                    <a href="contactInfo.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="index.html">
+                            Homepage
+                        </a>
+                    </li>
+                    <li>
+                        <a href="introduction.html">Introduction</a>
+                    </li>
+                    <li>
+                        <a href="education.html">Education</a>
+                    </li>
+                    <li>
+                        <a href="experience.html">Repositories</a>
+                    </li>
+                    <li>
+                        <a href="projects.html">Projects</a>
+                    </li>
+                    <li>
+                        <a href="resume.html">Resume</a>
+                    </li>
+                    <li>
+                        <a href="hobbies.html">Hobbies</a>
+                    </li>
+                    <li>
+                        <a href="gitTracker.html">Git Tracker</a>
+                    </li>
+                    <li>
+                        <a href="contactInfo.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                   <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                   <div class="row">
+                    <div class="col-lg-3">
+                        <a ng-click="project(1)">Project 1</a><br/>
+                        <a ng-click="project(2)">Project 2</a><br/>
+                        <a ng-click="project(3)">Project 3</a><br/>
+                        <a ng-click="project(4)">Project 4</a><br/>
+                    </div>
+                    <div class="col-lg-3">
+                        <a ng-click="project(5)">Project 5</a><br/>
+                        <a ng-click="project(6)">Project 6</a><br/>
+                        <a ng-click="project(7)">Project 7</a><br/>
+                        <a ng-click="project(8)">Project 8</a><br/>
+                    </div>
+                    <div class="col-lg-3">
+                        <a ng-click="project(9)">Project 9</a><br/>
+                        <a ng-click="project(10)">Project 10</a><br/>
+                        <a ng-click="project(11)">Project 11</a><br/>
+                        <a ng-click="project(12)">Project 12</a><br/>
+                    </div>
+                    <div class="col-lg-3">
+                        <a ng-click="project(13)">Project 13</a><br/>
+                        <a ng-click="project(14)">Project 14</a><br/>
+                        <a ng-click="project(15)">Project 15</a><br/>
+                        <a ng-click="project(16)">Project 16</a><br/>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                
+                <div class="row" style="visibility:hidden;" id="rw1">
+                    <div class="col-lg-2">
+                        <span>sample text</span>
+                    </div>
+
+                    <div class="col-lg-8">
+                        
+                        <div class="flipbook">
+                            <div style="background-image:url(pages/1.jpg)" id="one"></div>
+                            <div style="background-image:url(pages/2.jpg)" id="two"></div>
+                            <div style="background-image:url(pages/3.jpg)" id="three"></div>
+                            <div style="background-image:url(pages/4.jpg)" id="four"></div>
+                        </div>
+                   
+                    </div>
+                    
+
+                    <div class="col-lg-2">
+
                     </div>
                 </div>
             </div>
@@ -89,15 +137,62 @@
     <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+    <script src="js/turn.min.js"></script>
+    <script src="assets/js/projects.js"></script>
+    <script type="text/javascript">
+
+    function loadApp() {
+
+    // Create the flipbook
+
+    $('.flipbook').turn({
+            // Width
+
+            width:922,
+            
+            // Height
+
+            height:600,
+
+            // Elevation
+
+            elevation: 50,
+            
+            // Enable gradients
+
+            gradients: true,
+            
+            // Auto center this flipbook
+
+            autoCenter: true
+
+        });
+}
+
+// Load the HTML4 version if there's not CSS transform
+
+yepnope({
+    test : Modernizr.csstransforms,
+    yep: ['js/turn.js'],
+    nope: ['js/turn.html4.min.js'],
+    both: ['css/basic.css'],
+    complete: loadApp
+});
+
+</script>
+<script src="js/bootstrap.min.js"></script>
+<script src="assets/js/angular.min.js"></script>
+<script src="assets/js/projects-angular.js"></script>
+
+
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+});
+</script>
 
 </body>
 

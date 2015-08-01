@@ -1,0 +1,7 @@
+#flipbook{
+    width: 800px;
+    height: 400px;
+}
+#flipbook .turn-page{
+    background-color:#ccc;
+}
