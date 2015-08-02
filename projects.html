@@ -78,15 +78,21 @@
                           <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
                           <div  id="wheelDiv" style="height:275px;width:300px;position:relative:zIndex:10;"></div>
                       </div>
-                      <div class="col-lg-9">    
+                      <div class="col-lg-3">    
+                        <br/>
+                       <br/><br/><br/><br/>
+                            <h3><a href="{{spannerLink}}" >{{spanner}}{{spannerLink}}</a></h3>
+
+                       
+                    </div>
+                    <div class="col-lg-6">    
                         Project info shown here
-                      </div>
+                    </div>
+                </div>
+            </div>
 
-                  </div>
-              </div>
 
-
-              <div class="row">
+            <div class="row">
                 <div class="col-lg-3">
 
                     <br/>
@@ -94,45 +100,10 @@
                     <h3>Projects</h3>
                     <br>
                     <div style="overflow-y: scroll; height:300px;position:relative;">
-
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
-                        <a ng-click="project(1)" style="color:black;" class="form-control">Project 1</a>
-                        <br/>
+                        <div ng-repeat="proj in projects">
+                            <a ng-click="project($index)" style="color:black;" class="form-control">{{proj.name}}</a>
+                            <br/>
+                        </div>
                     </div>
                 </div>
 
