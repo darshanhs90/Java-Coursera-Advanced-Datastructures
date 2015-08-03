@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 
 <head>
 
@@ -12,104 +12,101 @@
     <title>Contact Information</title>
 
     <!-- Bootstrap Core CSS -->
+    <link href="css/basic.css" rel="stylesheet">
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
-        <link rel="stylesheet" href="assets/css/main1.css" />
+    <link rel="stylesheet" href="assets/css/main1.css" />
     <link rel="stylesheet" href="css/demo.css" media="screen">
     <link rel="stylesheet" href="css/demo-print.css" media="print">
+    <script type="text/javascript" src="js/jquery.min.1.7.js"></script>
+    <script type="text/javascript" src="js/modernizr.2.5.3.min.js"></script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
 
-</head>
+    </head>
 
-<body>
+    <body ng-controller="myCtrl">
 
-    <div id="wrapper">
+        <div id="wrapper">
 
-        <!-- Sidebar -->
-                <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="index.html">
-                        Homepage
-                    </a>
-                </li>
-                <li>
-                    <a href="introduction.html">Introduction</a>
-                </li>               
-                <li>
-                    <a href="experience.html">Repositories</a>
-                </li>
-                <li>
-                    <a href="projects.html">Projects</a>
-                </li>
-                <li>
-                    <a href="resume.html">Resume</a>
-                </li>
-                <li>
-                    <a href="hobbies.html">Hobbies</a>
-                </li>
-                <li>
-                    <a href="gitTracker.html">Git Tracker</a>
-                </li>
-                <li>
-                    <a href="contactInfo.html">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="index.html">
+                            Homepage
+                        </a>
+                    </li>
+                    <li>
+                        <a href="introduction.html">Introduction</a>
+                    </li>               
+                    <li>
+                        <a href="experience.html">Repositories</a>
+                    </li>
+                    <li>
+                        <a href="projects.html">Projects</a>
+                    </li>
+                    <li>
+                        <a href="resume.html">Resume</a>
+                    </li>
+                    <li>
+                        <a href="hobbies.html">Hobbies</a>
+                    </li>
+                    <li>
+                        <a href="gitTracker.html">Git Tracker</a>
+                    </li>
+                    <li>
+                        <a href="contactInfo.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
-                        <a href="mailto:hsdars@gmail.com"><span class="icon style4 major fa-envelope"></span></a>
-                        <a href="#"><span class="icon style4 major fa-phone"></span></a>
-                        <a href="#"><span class="icon style4 major fa-twitter"></span></a>
-                        <a href="#"><span class="icon style4 major fa-facebook"></span></a>
-                        <a href="#"><span class="icon style4 major fa-instagram"></span></a>
-                        <a href="#"><span class="icon style4 major fa-youtube"></span></a>
-                        <a href="#"><span class="icon style4 major fa-github"></span></a>
-                        <a href="#"><span class="icon style4 major fa-linkedin"></span></a>
-                        <a href="#"><span class="icon style4 major fa-code"></span></a>
-                        
-                        
-                        
-                        
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                           <!--  <a href="mailto:hsdars@gmail.com"><span class="icon style4 major fa-envelope"></span></a> -->
+
+                            <div  id="wheelDiv" style="height:500px;width:500px;"></div>
+
+
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- /#page-content-wrapper -->
+
         </div>
-        <!-- /#page-content-wrapper -->
+        <!-- /#wrapper -->
 
-    </div>
-    <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/raphael.min.js"></script>
+        <script type="text/javascript" src="js/raphael.icons.min.js"></script>
+        <script type="text/javascript" src="js/wheelnav.min.js"></script>
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/contactInfo-angular.js"></script>
+        
+        <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        </script>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-    <script src="assets/js/skel.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-    <script src="assets/js/main.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    </body>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-
-</body>
-
-</html>
+    </html>
